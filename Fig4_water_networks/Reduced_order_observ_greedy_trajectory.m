@@ -22,7 +22,7 @@ end
     flag=0;
   % if rank_svd(p) == rank_svd(f)
     if   check_consistent(p,zf)
-        [Sigma,yes2] = Darouch_observer_with_trajectory(X,u_traj,C,newL);
+        [Sigma,yes2] = Darouch_observer_with_trajectory_v3(X,u_traj,C,newL);
         if yes2
             exist=true;
         end
@@ -66,3 +66,4 @@ end
     end 
     end
 end
+
