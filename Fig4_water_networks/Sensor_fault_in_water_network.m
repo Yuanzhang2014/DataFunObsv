@@ -12,11 +12,11 @@
 %%
 clear;clc;close all;
 addpath('../utils')
-load('.\pipe_infoMatrix.mat');
-load('.\pumps_infoMatrix.mat');
-load('.\tanks_infoMatrix.mat');
-load('.\junction_infoMatrix.mat');
-load('.\reservoirs_infoMatrix.mat');
+load('..\pipe_infoMatrix.mat');
+load('..\pumps_infoMatrix.mat');
+load('..\tanks_infoMatrix.mat');
+load('..\junction_infoMatrix.mat');
+load('..\reservoirs_infoMatrix.mat');
 junc = size(junction_infoMatrix,1);
 res = size(reservoirs_infoMatrix,1);
 tank = size(tanks_infoMatrix,1);
@@ -90,10 +90,10 @@ for k = 1 : N
 end
 
 % Design observers based on different sensors
-[Sigma1,exist1,newL1] = Reduced_order_observ_greedy_trajectory(U,X(:,1:N),C(1,:),L,1);
-[Sigma2,exist2,newL2] = Reduced_order_observ_greedy_trajectory(U,X(:,1:N),C(2,:),L,1);
-[Sigma3,exist3,newL3] = Reduced_order_observ_greedy_trajectory(U,X(:,1:N),C(3,:),L,1);
-[Sigma4,exist4,newL4] = Reduced_order_observ_greedy_trajectory(U,X(:,1:N),C(4,:),L,1);
+[Sigma1,exist1,newL1] = Reduced_order_observ_augmented_subspace_intersection_v3_partial(U,X(:,1:N),X(:,1:N),C(1,:),L,eye(n));
+[Sigma2,exist2,newL2] = Reduced_order_observ_augmented_subspace_intersection_v3_partial(U,X(:,1:N),X(:,1:N),C(2,:),L,eye(n));
+[Sigma3,exist3,newL3] = Reduced_order_observ_augmented_subspace_intersection_v3_partial(U,X(:,1:N),X(:,1:N),C(3,:),L,eye(n));
+[Sigma4,exist4,newL4] = Reduced_order_observ_augmented_subspace_intersection_v3_partial(U,X(:,1:N),X(:,1:N),C(4,:),L,eye(n));
 
 % Initializing test data
 Yt_att = zeros(1,N);
@@ -146,15 +146,17 @@ end
 close all;
 figure(1);
 len_plot = 1:100;
-plot(len_plot, Zt(2,len_plot), 'LineWidth', 1.2);
+marker_idx = linspace(1, 100, 7);
+marker_idx = round(marker_idx);
+plot(len_plot, Zt(2,len_plot), 'LineWidth', 1.2, 'Color', [1, 0.8, 0.2]);
 hold on;
-plot(len_plot, Zt_observ1(2,len_plot), 'LineWidth', 1.2);
+plot(len_plot, Zt_observ1(2,len_plot), 'LineWidth', 1.2, 'Marker', 's', 'MarkerSize', 4, 'MarkerIndices', marker_idx, 'Color', [0.106, 0.619, 0.467]);
 hold on;
-plot(len_plot, Zt_observ2(2,len_plot), 'LineWidth', 1.2);
+plot(len_plot, Zt_observ2(2,len_plot), 'LineWidth', 1.2, 'Marker', 'o', 'MarkerSize', 4, 'MarkerIndices', marker_idx, 'Color', [0.651, 0.337, 0.157]);
 hold on;
-plot(len_plot, Zt_observ3(2,len_plot), 'LineWidth', 1.2);
+plot(len_plot, Zt_observ3(2,len_plot), 'LineWidth', 1.2, 'Marker', '^', 'MarkerSize', 4, 'MarkerIndices', marker_idx, 'Color', [0.459, 0.439, 0.702]);
 hold on;
-plot(len_plot, Zt_observ4(2,len_plot), 'LineWidth', 1.2);
+plot(len_plot, Zt_observ4(2,len_plot), 'LineWidth', 1.2, 'Marker', 'd', 'MarkerSize', 4, 'MarkerIndices', marker_idx, 'Color', [0.906, 0.161, 0.541]);
 hold on;
 legend('Target functional state', 'FO via Sensor 1','FO via Sensor 2','FO via Sensor 3','FO via Sensor 4')
 xlabel('Time,t', 'FontSize', 12);
@@ -163,13 +165,15 @@ ylabel('Height', 'FontSize', 12);
 % Drawing Fig.4(c)
 figure(2);
 len_plot = 1:250;
-plot(len_plot, Zt_observ_att(2,len_plot), 'LineWidth', 1.2);
+marker_idx = linspace(1, 250, 7);
+marker_idx = round(marker_idx);
+plot(len_plot, Zt_observ_att(2,len_plot), 'LineWidth', 1.2, 'Marker', 's', 'MarkerSize', 6, 'MarkerIndices', marker_idx, 'Color', [0.106, 0.619, 0.467]);
 hold on;
-plot(len_plot, Zt_observ2(2,len_plot), 'LineWidth', 1.2);
+plot(len_plot, Zt_observ2(2,len_plot), 'LineWidth', 1.2, 'Marker', 'o', 'MarkerSize', 6, 'MarkerIndices', marker_idx, 'Color', [0.651, 0.337, 0.157]);
 hold on;
-plot(len_plot, Zt_observ3(2,len_plot), 'LineWidth', 1.2);
+plot(len_plot, Zt_observ3(2,len_plot), 'LineWidth', 1.2, 'Marker', '^', 'MarkerSize', 6, 'MarkerIndices', marker_idx, 'Color', [0.459, 0.439, 0.702]);
 hold on;
-plot(len_plot, Zt_observ4(2,len_plot), 'LineWidth', 1.2);
+plot(len_plot, Zt_observ4(2,len_plot), 'LineWidth', 1.2, 'Marker', 'd', 'MarkerSize', 6, 'MarkerIndices', marker_idx, 'Color', [0.906, 0.161, 0.541]);
 hold on;
 a = 160;
 b = 210;
@@ -183,13 +187,15 @@ ylabel('Height', 'FontSize', 12);
 % Drawing the small figure in Fig.4(c) 
 figure(3);
 len_plot = 150:220;
-plot(len_plot, Zt_observ_att(2,len_plot), 'LineWidth', 1.2);
+marker_idx = linspace(1, 70, 7);
+marker_idx = round(marker_idx);
+plot(len_plot, Zt_observ_att(2,len_plot), 'LineWidth', 1.2, 'Marker', 's', 'MarkerSize', 6, 'MarkerIndices', marker_idx, 'Color', [0.106, 0.619, 0.467]);
 hold on;
-plot(len_plot, Zt_observ2(2,len_plot), 'LineWidth', 1.2);
+plot(len_plot, Zt_observ2(2,len_plot), 'LineWidth', 1.2, 'Marker', 'o', 'MarkerSize', 6, 'MarkerIndices', marker_idx, 'Color', [0.651, 0.337, 0.157]);
 hold on;
-plot(len_plot, Zt_observ3(2,len_plot), 'LineWidth', 1.2);
+plot(len_plot, Zt_observ3(2,len_plot), 'LineWidth', 1.2, 'Marker', '^', 'MarkerSize', 6, 'MarkerIndices', marker_idx, 'Color', [0.459, 0.439, 0.702]);
 hold on;
-plot(len_plot, Zt_observ4(2,len_plot), 'LineWidth', 1.2);
+plot(len_plot, Zt_observ4(2,len_plot), 'LineWidth', 1.2, 'Marker', 'd', 'MarkerSize', 6, 'MarkerIndices', marker_idx, 'Color', [0.906, 0.161, 0.541]);
 hold on;
 a = 160;
 b = 210;
@@ -202,13 +208,15 @@ ylabel('Height', 'FontSize', 12);
 % Drawing Fig.4(d)
 figure(4);
 len_plot = 1:250;
-plot(len_plot, Zt_observ_att(1,len_plot), 'LineWidth', 1.2);
+marker_idx = linspace(1, 250, 7);
+marker_idx = round(marker_idx);
+plot(len_plot, Zt_observ_att(1,len_plot), 'LineWidth', 1.2, 'Marker', 's', 'MarkerSize', 6, 'MarkerIndices', marker_idx, 'Color', [0.106, 0.619, 0.467]);
 hold on;
-plot(len_plot, Zt_observ2(1,len_plot), 'LineWidth', 1.2);
+plot(len_plot, Zt_observ2(1,len_plot), 'LineWidth', 1.2, 'Marker', 'o', 'MarkerSize', 6, 'MarkerIndices', marker_idx, 'Color', [0.651, 0.337, 0.157]);
 hold on;
-plot(len_plot, Zt_observ3(1,len_plot), 'LineWidth', 1.2);
+plot(len_plot, Zt_observ3(1,len_plot), 'LineWidth', 1.2, 'Marker', '^', 'MarkerSize', 6, 'MarkerIndices', marker_idx, 'Color', [0.459, 0.439, 0.702]);
 hold on;
-plot(len_plot, Zt_observ4(1,len_plot), 'LineWidth', 1.2);
+plot(len_plot, Zt_observ4(1,len_plot), 'LineWidth', 1.2, 'Marker', 'd', 'MarkerSize', 6, 'MarkerIndices', marker_idx, 'Color', [0.906, 0.161, 0.541]);
 hold on;
 a = 160;
 b = 210;
@@ -222,13 +230,15 @@ ylabel('Height', 'FontSize', 12);
 % Drawing the small figure in Fig.4(d) 
 figure(5);
 len_plot = 150:220;
-plot(len_plot, Zt_observ_att(1,len_plot), 'LineWidth', 1.2);
+marker_idx = linspace(1, 70, 7);
+marker_idx = round(marker_idx);
+plot(len_plot, Zt_observ_att(1,len_plot), 'LineWidth', 1.2, 'Marker', 's', 'MarkerSize', 6, 'MarkerIndices', marker_idx, 'Color', [0.106, 0.619, 0.467]);
 hold on;
-plot(len_plot, Zt_observ2(1,len_plot), 'LineWidth', 1.2);
+plot(len_plot, Zt_observ2(1,len_plot), 'LineWidth', 1.2, 'Marker', 'o', 'MarkerSize', 6, 'MarkerIndices', marker_idx, 'Color', [0.651, 0.337, 0.157]);
 hold on;
-plot(len_plot, Zt_observ3(1,len_plot), 'LineWidth', 1.2);
+plot(len_plot, Zt_observ3(1,len_plot), 'LineWidth', 1.2, 'Marker', '^', 'MarkerSize', 6, 'MarkerIndices', marker_idx, 'Color', [0.459, 0.439, 0.702]);
 hold on;
-plot(len_plot, Zt_observ4(1,len_plot), 'LineWidth', 1.2);
+plot(len_plot, Zt_observ4(1,len_plot), 'LineWidth', 1.2, 'Marker', 'd', 'MarkerSize', 6, 'MarkerIndices', marker_idx, 'Color', [0.906, 0.161, 0.541]);
 hold on;
 a = 160;
 b = 210;
