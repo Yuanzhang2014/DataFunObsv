@@ -1,7 +1,6 @@
 % Learning feedback control laws using functional observers in load frequency control
 % for LFC in the New England three area 39-bus Test case
 
-%Data driven funobserv nonlinearV1114engdata functional observability
 %Data source:
 %Shangguan, X. C., He, Y., Zhang, C. K., Jiang, L., & Wu, M. (2021). Adjustable event-triggered load frequency control of power systems using control-performance-standard-based fuzzy logic. IEEE Transactions on Fuzzy Systems, 30(8), 3297-3311.
 
@@ -348,3 +347,4 @@ set(gca,'ytick',-0.8:0.4:0.8);
 
 set(gcf,'Position',[200 200 250 200]); 
 ax=gca; ax.LineWidth=0.6; box on
+
