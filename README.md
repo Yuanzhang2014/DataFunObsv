@@ -2,7 +2,7 @@
 Codes for Data-Driven Functional State Estimation of Complex Networks
 
 
-# Codes for Fig. 4
+# "Fig4_water_networks" is the codes for Fig. 4
 Codes for "Sensor Fault Detection and Recovery in Water Networks"
 
 "Sensor_fault_in_water_network.m" is the main script file. It generates Figures 4 (b), (c), and (d).
