@@ -1,6 +1,6 @@
 Target estimation of nonlinear neuron networks using limited sensors
 ===
-We apply the data-driven observer framework to target estimation in neuron networks modeled by the classic Hindmarsh-Rose system57
+We apply the data-driven observer framework to target estimation in neuron networks modeled by the classic Hindmarsh-Rose system.
 
 usage
 ---
