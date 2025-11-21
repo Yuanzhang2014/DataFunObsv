@@ -1,5 +1,5 @@
 # DataFunObsv
-Data and Codes for Data-Driven Functional State Estimation of Complex Networks by Yuan Zhang, Ziyuan Luo, Wenxuan Xu, Jiayu Wu, Wenqi Cao, Ranbo Cheng, Tingting Qin, Yuanqing Xia, Mohamed Darouach, Aming Li, Tyrone Fernando. 
+Data and Codes for Data-Driven Functional State Estimation of Complex Networks by Yuan Zhang, Ziyuan Luo, Wenxuan Xu, Jiayu Wu, Wenqi Cao, Ranbo Cheng, Tingting Qin, Yuanqing Xia, Mohamed Darouach, Aming Li, and Tyrone Fernando. 
 
 
 # "Fig4_water_networks" is the code for Fig. 4
