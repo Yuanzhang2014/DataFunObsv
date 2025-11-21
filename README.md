@@ -4,3 +4,6 @@ Data and Codes for Data-Driven Functional State Estimation of Complex Networks b
 
 # "Fig4_water_networks" is the code for Fig. 4
 Codes for "Sensor Fault Detection and Recovery in Water Networks". "Sensor_fault_in_water_network.m" is the main script file. It generates Figures 4 (b), (c), and (d). The remaining files—"junction_infoMatrix.mat", "pipe_infoMatrix.mat", "pumps_infoMatrix.mat", "reservoirs_infoMatrix.mat", and "tanks_infoMatrix.mat"—store the topology data of the water network.
+
+# Supplementary/FigS5_SVD_noisydata_Funobsv
+Run the code demo_noise_envelope.m to create Supplemental Figure S5: SVD-based dimension selection and functional observer performance with noisy measurement data.
