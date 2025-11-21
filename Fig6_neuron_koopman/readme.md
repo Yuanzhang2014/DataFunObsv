@@ -13,5 +13,3 @@ usage
 * `check_consistent.m`: Check the consistency condition for observer design.
 
 * `Simulation_agumentation_observer_with_trajectory_pure_data.m`: Simulate and evaluate the performance of a data-driven augmented state observer. It generates Figures. 6 (b).
-
-* 
