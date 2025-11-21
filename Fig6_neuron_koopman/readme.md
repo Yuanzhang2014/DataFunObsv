@@ -1,5 +1,7 @@
 Target estimation of nonlinear neuron networks using limited sensors
 ===
+We apply the data-driven observer framework to target estimation in neuron networks modeled by the classic Hindmarsh-Rose system57
+
 usage
 ---
 * `neuron_nonlinear_Koopman_centerpoint_VER6.m` : Main script for estimation performance for the nonlinear neuron networks using limited sensors by Koopman operator. It generates Figures 6 (b), (c), and (d).
