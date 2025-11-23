@@ -2,7 +2,7 @@
 Data and Codes for Data-Driven Functional State Estimation of Complex Networks by Yuan Zhang, Ziyuan Luo, Wenxuan Xu, Jiayu Wu, Wenqi Cao, Ranbo Cheng, Tingting Qin, Yuanqing Xia, Mohamed Darouach, Aming Li, and Tyrone Fernando. 
 
 # "utils"
-This folder contains underlying code in the repository, including how to design data-driven FOs, how to verify functional observability by data and some numerical tricks.
+This folder contains underlying code in the repository, e.g., how to design data-driven FOs, how to verify functional observability by data and some numerical tricks.
 Before running any simulation, please change your path to the target folder and make sure of adding this directory to your current path.
 
 # "Fig1_example_data_vs_ID"
