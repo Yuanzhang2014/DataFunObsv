@@ -77,7 +77,7 @@ phi(:,1) = pi0;              % Initial phases in [-π, π]
 omega0 = 0.1*randn(n_g,1);
 omega(1:n_g,1) = omega0;     % Initial generator angular velocities
 
-%% Generate simulation data
+%% Generate historical (training) data
 u_traj = [];
 for t = 1:steps-1
     % Random input
@@ -124,7 +124,7 @@ C = I(crows,:);
 lrows = [2,4,13,15,32,34];
 L = I(lrows,:);
 
-%% Data-driven functional observer design
+%% Data-driven functional observer design from historical data
 [Sigma, exist, newL] = Reduced_order_observ_augmented_subspace_intersection_affine_v3(u_traj, x_traj, C, L);
 
 %% Simulation validation
@@ -222,3 +222,4 @@ p = plot(G, 'Layout','force', 'UseGravity',true);
 p.NodeCData = [ones(n_g,1); 2*ones(n_l,1)]; % Generator nodes in red, load nodes in blue
 p.MarkerSize = 4;
 colormap([1 0 0; 0 0 1]); % Red: generators, Blue: loads
+
