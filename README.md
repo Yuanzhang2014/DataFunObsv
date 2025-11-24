@@ -1,6 +1,8 @@
 # DataFunObsv
 Data and Codes for Data-Driven Functional State Estimation of Complex Networks by Yuan Zhang, Ziyuan Luo, Wenxuan Xu, Jiayu Wu, Wenqi Cao, Ranbo Cheng, Tingting Qin, Yuanqing Xia, Mohamed Darouach, Aming Li, and Tyrone Fernando. 
 
+All simulations were performed using MATLAB R2024a on a desktop computer with a 3.40 GHz Intel Core i7 processor and 16 GB574 of RAM. 
+
 # "utils"
 This folder contains underlying code in the repository, e.g., how to design data-driven FOs, how to verify functional observability by data and some numerical tricks.
 
