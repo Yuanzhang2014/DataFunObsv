@@ -10,6 +10,7 @@
 % Last revision: Oct-28-2025
 
 %------------- BEGIN CODE --------------
+addpath('../utils') % Add the folder .\utils for functions
 %% ID: 9-nodes system and 10-nodes system
 n=10;
 m=3;
@@ -114,4 +115,5 @@ y_id2 = C_id2*x_id2;
 z_id2 = L_id2*x_id2;
 
 % save('./yourdemo.mat')
+
 %------------- END OF CODE --------------
