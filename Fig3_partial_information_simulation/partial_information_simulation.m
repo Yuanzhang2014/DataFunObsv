@@ -71,7 +71,7 @@ for w_idx = 1:length(W_lib)
             % Compute RRMSE (Relative Root Mean Square Error)
             error_data = Simulation_agumentation_observer_with_trajectory_no_plot(Sigma2, X_test, U_test, C, newL2, L);
             acc_error = sqrt(trace(error_data(1:r, end-800+1:end)' * error_data(1:r, end-800+1:end)) / ...
-                        trace(Z_test(1:r, end-800+1:end)' * Z_test(1:r, end-800+1:end));
+                        trace(Z_test(1:r, end-800+1:end)' * Z_test(1:r, end-800+1:end)));
             RRMSE(w_idx, count, p_idx) = acc_error;
             
             % Display current result
@@ -144,5 +144,6 @@ ax = gca;
 ax.YColor = [0, 0, 0];
 ax.XColor = [0, 0, 0];
 ax.LineWidth = 0.6;
+
 
 %------------- END CODE --------------
