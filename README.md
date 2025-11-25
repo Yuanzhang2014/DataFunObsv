@@ -1,12 +1,13 @@
 # DataFunObsv
 Data and Codes for Data-Driven Functional State Estimation of Complex Networks by Yuan Zhang, Ziyuan Luo, Wenxuan Xu, Jiayu Wu, Wenqi Cao, Ranbo Cheng, Tingting Qin, Yuanqing Xia, Mohamed Darouach, Aming Li, and Tyrone Fernando. 
 
-All simulations were performed using MATLAB R2024a on a desktop computer with a 3.40 GHz Intel Core i7 processor and 16 GB574 of RAM. 
+# Matlab version requirement
+To ensure smooth execution, please run all codes in MATLAB R2024a or newer versions​ (including R2024b). Using an older version may result in errors for functions like conncomp, as some functions (e.g., the older graphconncomp) have been removed or updated in recent releases
 
 # "utils"
-This folder contains underlying code in the repository, e.g., how to design data-driven FOs, how to verify functional observability by data and some numerical tricks.
+This folder contains underlying code in the repository, e.g., how to design data-driven FOs, how to verify functional observability by data and some numerical tricks. This folder has been added to your current path by the command addpath('../utils').
 
-Before running any simulation, please change your path to the target folder and make sure of adding this directory to your current path.
+
 
 # "Fig1_example_data_vs_ID"
 This code is a demo for the simulation implemented in Fig.1 and Figure S1.
