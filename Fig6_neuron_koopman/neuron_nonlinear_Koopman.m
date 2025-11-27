@@ -1,5 +1,5 @@
 % =========================================================================
-% Filename: main_simulation.m
+% Filename: neuron_nonlinear_Koopman.m
 % Purpose: Main script for comparing observer performance across different Koopman lifting dimensions
 % Inputs: None (all parameters defined internally)
 % Outputs: Performance comparison plots for different lifting dimensions
@@ -128,3 +128,4 @@ hold off;
 xlabel('Time Step');
 ylabel('R_t');
 legend('show', 'Location', 'best');
+
