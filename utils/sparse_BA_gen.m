@@ -36,12 +36,18 @@ A(n+1:2*n,n+1:2*n) = w + (diag(0.5*rand(n,1)+0.5)-sum(w,2)).*eye(n);
 A = ~~A .* rand(2*n);
 A = A / (1.01*max(abs(eig(A))));
 
-bin = conncomp(digraph(A'));
-if p >= max(bin)-1
-    c1_idx = bin > 1;
-    c_backup=find(bin(1:n) == 1);
-    c_idx = c1_idx;
-    c_idx(c_backup(randperm(length(c_backup),p-sum(c1_idx)))) = 1;
+c_idx = zeros(1,2*n);
+[bin, binsize] = conncomp(digraph(A'));
+[main_size, main_class] = max(binsize); % main_size -> number of 
+if p >= 2*n - main_size
+    for i=1:max(bin)
+        if i~= main_class
+            tmp_idx = find(bin(1:n) ==i);
+            c_idx(tmp_idx(1)) = 1;
+        end
+    end
+    main_class_idx = find(bin(1:n) == main_class);
+    c_idx(main_class_idx(randperm(length(main_class_idx),p-sum(c_idx)))) = 1;
     IsObsv = 1; % observable
 else
     c_idx = randperm(n,p);
@@ -56,4 +62,5 @@ I = eye(n).*rand(n);
 B = [zeros(n,m);I(:,b_idx)];
 C = [I(c_idx,:) zeros(p,n)];
 L = [zeros(r,n) I(l_idx,:)];
+
 end
