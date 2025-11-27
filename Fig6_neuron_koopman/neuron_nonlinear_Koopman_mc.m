@@ -1,5 +1,5 @@
 % =========================================================================
-% Filename: neuron_nonlinear_mc.m
+% Filename: neuron_nonlinear_Koopman_mc.m
 % Purpose: Main script for comparing observer performance across different Koopman lifting dimensions
 % Inputs: None (all parameters defined internally)
 % Outputs: Performance comparison plots for different lifting dimensions
@@ -180,4 +180,5 @@ ylabel('RMSE', 'FontSize', 12);
 %title('RMSE Comparison (Averaged over Experiments)', 'FontSize', 14, 'FontWeight', 'bold');
 legend('show', 'Location', 'best');
 grid on;
+
 
