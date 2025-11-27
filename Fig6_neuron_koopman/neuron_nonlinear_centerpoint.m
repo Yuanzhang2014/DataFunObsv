@@ -49,32 +49,8 @@ Z = zeros(r, N);                % Observed state trajectory
 
 xop = rand(node_num, 1);        % Linearization operating point for Taylor expansion
 dt = 0.0001;                    % Forward Euler discretization time step
-
-%% Linearized system generation section
-for i = 1:node_num
-    [A(3*(i-1)+1:3*i, 3*(i-1)+1:3*i), B(3*(i-1)+1:3*i, i), X_affine(3*(i-1)+1:3*i, 1)] = ...
-        discretized_lineared_neuron(xop(i, 1), dt);
-end
-
-for i = 1:node_num
-    for j = 1:node_num
-        if Topology(i, j) ~= 0
-             A(3*(i-1)+1, 3*(i-1)+1) = A(3*(i-1)+1, 3*(i-1)+1) - dt;    % Self-coupling
-            A(3*(i-1)+1, 3*(j-1)+1) = A(3*(i-1)+1, 3*(j-1)+1) + dt;    % Neighbor coupling
-        end
-    end
-end
-
 X_affine0 = X_affine;
 apm = 1;  
-
-%% Linear system simulation
-% Generate trajectory using discretized linear model
-for k = 1:N
-    X(:, k+1) = A * X(:, k) + B * U(:, k) + X_affine0;  % Linear state update
-    Y(:, k) = C * X(:, k);                              % Linear output
-    Z(:, k) = L * X(:, k);                              % Linear observed states
-end
 
 %% Nonlinear system simulation section
 % Generate trajectory using full nonlinear neuron dynamics
@@ -103,4 +79,5 @@ end
 Y_non = C * X_non(:, 1:N);      % Nonlinear output measurements
 Z_non = L * X_non(:, 1:N);      % Nonlinear target states  
 X_non = X_non(:, 1:N);          % Trim to N time steps for consistency
+
 end
