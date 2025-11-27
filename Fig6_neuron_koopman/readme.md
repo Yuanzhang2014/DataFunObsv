@@ -4,8 +4,8 @@ We apply the data-driven observer framework to target estimation in neuron netwo
 
 usage
 ---
-* `neuron_nonlinear_Koopman_centerpoint_VER6.m` : Main script for estimation performance for the nonlinear neuron networks using limited sensors by Koopman operator. It generates Figures 6 (b), (c).
-* `neuron_nonlinear_mc.m`: Monte Carlo evaluation of Koopman-based nonlinear observer performance by computing time-varying RMSE (Root Mean Square Error) across Nr experiments. It generates Figure 6 (d).
+* `neuron_nonlinear_Koopman.m` : Main script for estimation performance for the nonlinear neuron networks using limited sensors by Koopman operator. It generates Figures 6 (b), (c).
+* `neuron_nonlinear_Koopman_mc.m`: Monte Carlo evaluation of Koopman-based nonlinear observer performance by computing time-varying RMSE (Root Mean Square Error) across Nr experiments. It generates Figure 6 (d).
 * `neuron_nonlinear.m`: Generate nonlinear neuron network system trajectories.
 
 * `lift_koopman`: Create thin plate spline radial basis functions and lift original state data to higher-dimensional space.
