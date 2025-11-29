@@ -34,7 +34,7 @@ Before running the code, please change your path to this folder first.
 - `ER_error.mat`, `ER_order.mat`, `ER_ratio.mat`: raw data for the performance indices of partial information simulation in ER network in our paper.
 
 # "Fig4_water_networks" contains the code for Fig. 4
-Codes for "Sensor Fault Detection and Recovery in Water Networks". "Sensor_fault_in_water_network.m" is the main script file. It generates Figures 4 (b), (c), and (d). The remaining files—"junction_infoMatrix.mat", "pipe_infoMatrix.mat", "pumps_infoMatrix.mat", "reservoirs_infoMatrix.mat", and "tanks_infoMatrix.mat"—store the topology data of the water network.
+Codes for "Sensor Fault Detection and Recovery in Water Networks". `Sensor_fault_in_water_network.m' is the main script file. It generates Figures 4 (b), (c), and (d). The remaining files—"junction_infoMatrix.mat", "pipe_infoMatrix.mat", "pumps_infoMatrix.mat", "reservoirs_infoMatrix.mat", and "tanks_infoMatrix.mat"—store the topology data of the water network.
 
 
 # "Fig5_LFC" contains the code for Fig.5
