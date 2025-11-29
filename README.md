@@ -1,5 +1,5 @@
 # DataFunObsv
-Data and Codes for Data-Driven Functional State Estimation of Complex Networks by Yuan Zhang, Ziyuan Luo, Wenxuan Xu, Jiayu Wu, Wenqi Cao, Ranbo Cheng, Tingting Qin, Yuanqing Xia, Mohamed Darouach, Aming Li, and Tyrone Fernando. 
+Data and Codes for Data-driven functional state estimation of complex networks by Yuan Zhang, Ziyuan Luo, Wenxuan Xu, Jiayu Wu, Wenqi Cao, Ranbo Cheng, Tingting Qin, Yuanqing Xia, Mohamed Darouach, Aming Li, and Tyrone Fernando. 
 
 # Matlab version requirement
 To ensure smooth execution, please run all codes in MATLAB R2024a or newer versions​ (including R2024b). Using an older version may result in errors for functions like conncomp, as some functions (e.g., the older graphconncomp) have been removed or updated in recent releases.
@@ -48,7 +48,7 @@ Running File `LFC_main.m` within the same folder as the compressed archive yield
 Running File `data_driven_min_funobserver_measurenoise_using_Hermitian.m` within the same folder as the compressed archive yields Figures S3-S4.
 
 # "Supplementary/FigS5_SVD_noisydata_Funobsv" contains the code for Figure S5
-Run the code demo_noise_envelope.m to create Supplemental Figure S5: SVD-based dimension selection and functional observer performance with noisy measurement data.
+Run the code `demo_noise_envelope.m` to create Supplemental Figure S5: SVD-based dimension selection and functional observer performance with noisy measurement data.
 
 # "Supplementary/powergrid" contains the code for Figure S6
 Running File `powergrid_main.m` within the same folder as the compressed archive yields Figure S6. `power39PB.mat` stores the topology data of the IEEE39.
