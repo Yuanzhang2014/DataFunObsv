@@ -1,5 +1,5 @@
 # DataFunObsv
-Data and Codes for Data-driven functional state estimation of complex networks by Yuan Zhang, Ziyuan Luo, Wenxuan Xu, Jiayu Wu, Wenqi Cao, Ranbo Cheng, Tingting Qin, Yuanqing Xia, Mohamed Darouach, Aming Li, and Tyrone Fernando. 
+Data and Codes for Learning functional state estimators of complex networks from partial data by Yuan Zhang, Ziyuan Luo, Wenxuan Xu, Jiayu Wu, Wenqi Cao, Ranbo Cheng, Tingting Qin, Yuanqing Xia, Mohamed Darouach, Aming Li, and Tyrone Fernando. 
 
 # Matlab version requirement
 To ensure smooth execution, please run all codes in MATLAB R2024a or newer versions​ (including R2024b). Using an older version may result in errors for functions like conncomp, as some functions (e.g., the older graphconncomp) have been removed or updated in recent releases.
